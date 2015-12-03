@@ -317,6 +317,27 @@ inline TERM make(ErlNifEnv *env, const int var)
     return TERM(enif_make_int(env, var));
 }
 
+inline int get(ErlNifEnv *env, ERL_NIF_TERM term, uint8_t &var)
+{
+	auto convVar = static_cast<unsigned int>(var);
+	return enif_get_uint(env, term, &convVar);
+}
+inline TERM make(ErlNifEnv *env, const uint8_t var)
+{
+	auto convVar = static_cast<unsigned int>(var);
+	return TERM(enif_make_uint(env, convVar));
+}
+
+inline int get(ErlNifEnv *env, ERL_NIF_TERM term, uint16_t &var)
+{
+	auto convVar = static_cast<unsigned int>(var);
+	return enif_get_uint(env, term, &convVar);
+}
+inline TERM make(ErlNifEnv *env, const uint16_t var)
+{
+	auto convVar = static_cast<unsigned int>(var);
+	return TERM(enif_make_uint(env, convVar));
+}
 
 inline int get(ErlNifEnv *env, ERL_NIF_TERM term, unsigned int &var)
 {
